@@ -108,6 +108,11 @@ struct Video_Game_Ratings *remove_entry(struct Video_Game_Ratings *head)
 		printf("ERROR: Game doesn't exist in list. Please try again.\n");
 		return head;
 	}
+	if(removeNode ==head && removeNode->next == NULL) // If removing the only node in list
+	{
+		free(removeNode);
+		return NULL;
+	}
 	if(removeNode ==head){ // If the removing node is head
 		removeNode->next->prev =NULL;
 		head = head->next;
